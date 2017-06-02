@@ -25,5 +25,12 @@ class TestRoom < Minitest::Test
     assert_equal(5, @room_1.capacity)
   end
 
+  def test_get_entry_fee
+    assert_equal(20, @room_1.entry_fee)
+  end
+
+  def test_get_room_number
+    assert_equal(1, @room_1.room_number)
+  end
 
 end
