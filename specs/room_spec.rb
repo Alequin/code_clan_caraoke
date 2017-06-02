@@ -21,4 +21,9 @@ class TestRoom < Minitest::Test
     @room_1 = Room.new(@guests, @songs, 5, 20)
   end
 
+  def test_get_capacity
+    assert_equal(5, @room_1.capacity)
+  end
+
+
 end
