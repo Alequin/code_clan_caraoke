@@ -1,0 +1,24 @@
+artist - ACDC
+title - Rock’n’Roll Singer
+lyrics - My daddy was workin' nine to five
+length - 228 seconds
+
+artist - Smash Mouth
+title - All Star
+lyrics - Somebody once told me the world is gonna roll me
+length - 237 seconds
+
+artist - ACDC
+title - Thunderstruck
+lyrics - Thunder, thunder, thunder, thunder
+length - 292 seconds
+
+artist - The Elder Scrolls V: Skyrim (OGST)
+title - Dragonborn (Skyrim Theme)
+lyrics - Dovahkiin, Dovahkiin naal ok zin los vahriin
+length - 237 seconds
+
+artist - Ricky Martin
+title - livin la vida loca
+lyrics - She's into superstitions Black cats and voodoo dolls
+length - 222 seconds
