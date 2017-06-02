@@ -1,10 +1,14 @@
 require("minitest/autorun")
 require("minitest/rg")
 require_relative("../room.rb")
+require_relative("../song.rb")
+require_relative("../guest.rb")
 
 class TestRoom < Minitest::Test
 
   def setup
+    Room.reset_total_rooms_counter()
+    
     @song_1_lyrics = "My daddy was workin' nine to five"
     @song_2_lyrics = "Somebody once told me the world is gonna roll me"
     @song_3_lyrics = "Dovahkiin, Dovahkiin naal ok zin los vahriin"
