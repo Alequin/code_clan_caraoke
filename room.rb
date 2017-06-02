@@ -29,4 +29,9 @@ class Room
     return lyrics
   end
 
+  def test_play_random_song()
+    @current_song_index = rand(@songs.length)
+    return @songs[@current_song_index]
+  end
+
 end

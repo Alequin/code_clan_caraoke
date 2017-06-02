@@ -44,8 +44,4 @@ class TestRoom < Minitest::Test
     assert_equal(@song_1.lyrics, @room_1.play_next_song())
   end
 
-  def test_play_random_song
-    assert_equal(@song_1.lyrics, @room_1.play_random_song())
-  end
-
 end
