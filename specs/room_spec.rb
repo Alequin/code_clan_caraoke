@@ -39,6 +39,9 @@ class TestRoom < Minitest::Test
 
   def test_play_next_song
     assert_equal(@song_1.lyrics, @room_1.play_next_song())
+    assert_equal(@song_2.lyrics, @room_1.play_next_song())
+    assert_equal(@song_3.lyrics, @room_1.play_next_song())
+    assert_equal(@song_1.lyrics, @room_1.play_next_song())
   end
 
   def test_play_random_song
