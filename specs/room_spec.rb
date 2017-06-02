@@ -8,7 +8,7 @@ class TestRoom < Minitest::Test
 
   def setup
     Room.reset_total_rooms_counter()
-    
+
     @song_1_lyrics = "My daddy was workin' nine to five"
     @song_2_lyrics = "Somebody once told me the world is gonna roll me"
     @song_3_lyrics = "Dovahkiin, Dovahkiin naal ok zin los vahriin"
@@ -35,6 +35,14 @@ class TestRoom < Minitest::Test
 
   def test_get_room_number
     assert_equal(1, @room_1.room_number)
+  end
+
+  def test_play_next_song
+    assert_equal(@song_1.lyrics, @room_1.play_next_song())
+  end
+
+  def test_play_random_song
+    assert_equal(@song_1.lyrics, @room_1.play_next_song())
   end
 
 end
