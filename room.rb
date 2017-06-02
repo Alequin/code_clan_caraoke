@@ -6,8 +6,8 @@ class Room
 
   @@total_rooms = 0
 
-  def initialize(guests, songs, capacity, entry_fee)
-    @guests = guests
+  def initialize(songs, capacity, entry_fee)
+    @guests = []
     @songs = songs
     @capacity = capacity
     @entry_fee = entry_fee

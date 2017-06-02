@@ -22,7 +22,7 @@ class TestRoom < Minitest::Test
     @songs = [@song_1, @song_2, @song_3]
     @guests = [@guest_1, @guest_2]
 
-    @room_1 = Room.new(@guests, @songs, 5, 20)
+    @room_1 = Room.new(@songs, 5, 20)
   end
 
   def test_get_capacity
