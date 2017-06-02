@@ -1,3 +1,5 @@
+require("pry")
+
 class Room
 
   attr_reader :capacity, :entry_fee, :room_number
@@ -17,6 +19,14 @@ class Room
 
   def Room.reset_total_rooms_counter()
     @@total_rooms = 0
+  end
+
+  def play_next_song()
+    #binding.pry
+    @current_song_index = 0 if @current_song_index >= @songs.length
+    lyrics = @songs[@current_song_index].lyrics
+    @current_song_index += 1 if @current_song_index < @songs.length
+    return lyrics
   end
 
 end
