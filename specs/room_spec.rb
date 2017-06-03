@@ -17,7 +17,11 @@ class TestRoom < Minitest::Test
     @song_3 = Song.new("Dragonborn (Skyrim Theme)", "The Elder Scrolls V: Skyrim (OGST)", @song_3_lyrics, 237)
 
     @guest_1 = Guest.new("Bob", 100, @song_1)
-    @guest_1 = Guest.new("Sally", 200, @song_2)
+    @guest_2 = Guest.new("Sally", 200, @song_2)
+    @guest_3 = Guest.new("Andrea", 100, @song_2)
+    @guest_4 = Guest.new("Paul", 150, @song_3)
+    @guest_5 = Guest.new("John", 150, @song_1)
+    @guest_6 = Guest.new("Mia", 100, @song_3)
 
     @songs = [@song_1, @song_2, @song_3]
     @guests = [@guest_1, @guest_2]
@@ -43,6 +47,36 @@ class TestRoom < Minitest::Test
     end
   end
 
+  def test_number_of_guests
+    assert_equal(0, @room_1.number_of_guests())
+    @room_1.check_in_guests(@guests)
+    assert_equal(2, @room_1.number_of_guests())
+  end
 
+  def test_current_guests__and__get_current_guests
+    assert_equal([], @room_1.current_guests())
+    @room_1.check_in_guests(@guests)
+    assert_equal(@guests, @room_1.current_guests())
+  end
+
+  def test_check_out_guests
+    guests = @room_1.check_out_guests()
+    assert_equal([], @room_1.current_guests())
+    assert_equal(@guests, guests)
+  end
+
+  def test_space_for_guests__true
+    assert_equal(true, @room_1.space_for_guests?(@guests))
+  end
+
+  def test_space_for_guests__false__already_in_use
+    @room_1.check_in_guests(@guests)
+    assert_equal(false, @room_1.space_for_guests?(@guests))
+  end
+
+  def test_space_for_guests__false__too_many_people_to_fit
+    @guests.concat([@guest_3, @guest_4, @guest_5, @guest_6])
+    assert_equal(false, @room_1.space_for_guests?(@guests))
+  end
 
 end
