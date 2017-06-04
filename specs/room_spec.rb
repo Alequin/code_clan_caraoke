@@ -62,6 +62,7 @@ class TestRoom < Minitest::Test
   end
 
   def test_remove_guests
+    @room_1.check_in_guests(@guests)
     guests = @room_1.remove_guests()
     assert_equal([], @room_1.get_current_guests())
     assert_equal(@guests, guests)
