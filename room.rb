@@ -35,6 +35,10 @@ class Room
     return @guests.length
   end
 
+  def get_current_guests()
+
+  end
+
   def check_in_guests(guests)
     @guests = guests
   end

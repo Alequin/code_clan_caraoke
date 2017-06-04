@@ -1,3 +1,5 @@
+require("pry")
+
 require("minitest/autorun")
 require("minitest/rg")
 require_relative("../room.rb")
@@ -53,15 +55,15 @@ class TestRoom < Minitest::Test
     assert_equal(2, @room_1.number_of_guests())
   end
 
-  def test_current_guests__and__get_current_guests
-    assert_equal([], @room_1.current_guests())
+  def test_check_in_guests__and__get_current_guests
+    assert_equal([], @room_1.get_current_guests())
     @room_1.check_in_guests(@guests)
-    assert_equal(@guests, @room_1.current_guests())
+    assert_equal(@guests, @room_1.get_current_guests())
   end
 
   def test_remove_guests
     guests = @room_1.remove_guests()
-    assert_equal([], @room_1.current_guests())
+    assert_equal([], @room_1.get_current_guests())
     assert_equal(@guests, guests)
   end
 
