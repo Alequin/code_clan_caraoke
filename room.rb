@@ -58,6 +58,10 @@ class Room
     return @guests
   end
 
+  def guests_can_pay?(guests)
+    return !guests.any?(){|guest| guest.money <= @entry_fee}
+  end
+
   def check_in_guests(guests)
     @guests = guests
   end

@@ -97,6 +97,7 @@ class TestRoom < Minitest::Test
   end
 
   def test_all_guests_can_pay__false
+    @guests.push(Guest.new("Fred", 5, @song_1))
     assert(!@room_1.guests_can_pay?(@guests))
   end
 
