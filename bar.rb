@@ -16,4 +16,12 @@ class Bar
     @consumables.clone
   end
 
+  def consumable_available?(consumable)
+    @consumables.include?(consumable)
+  end
+
+  def add_consumable(consumable)
+    @consumables.push(consumable)
+  end
+
 end
