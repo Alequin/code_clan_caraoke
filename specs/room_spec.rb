@@ -104,6 +104,7 @@ class TestRoom < Minitest::Test
   def test_get_payment_from_guests
     expected_post_payment = @guests.map() {|guest| guest.money - @room_1.entry_fee}
     @room_1.get_payment_from_guests(@guests)
+    @room_1.check_in_guests(@guests)
     room_guests = @room_1.get_current_guests()
     result_post_payment = room_guests.map() {|guest| guest.money}
     (@guests.length).times do |index|

@@ -62,6 +62,12 @@ class Room
     return !guests.any?(){|guest| guest.money <= @entry_fee}
   end
 
+  def get_payment_from_guests(guests)
+    guests.each do |guest|
+      guest.decrease_money_by(entry_fee)
+    end
+  end
+
   def check_in_guests(guests)
     @guests = guests
   end
