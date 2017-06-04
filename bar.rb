@@ -12,4 +12,8 @@ class Bar
     @profit += amount
   end
 
+  def get_menu()
+    @consumables.clone
+  end
+
 end

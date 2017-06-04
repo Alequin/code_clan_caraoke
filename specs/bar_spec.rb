@@ -2,12 +2,19 @@ require("minitest/autorun")
 require("minitest/rg")
 require_relative("../bar.rb")
 require_relative("../guest.rb")
+require_relative("../consumable.rb")
 
 class TestBar < Minitest::Test
 
   def setup
+    @crisps = Consumable.new("crisps", :food, 3)
+    @consumables = [
+      Consumable.new("soda", :drink, 4),
+      Consumable.new("juice", :drink, 5),
+      Consumable.new("burger", :food, 5)
+    ]
     @guest_1 = Guest.new("Bob", 100, @song_1)
-    @bar = Bar.new([])
+    @bar = Bar.new(@consumables)
   end
 
   def test_get_profit
@@ -24,7 +31,7 @@ class TestBar < Minitest::Test
   end
 
   def test_get_menu
-
+    assert_equal(@consumables, @bar.get_menu)
   end
 
   def test_sell_to_guest
@@ -32,15 +39,21 @@ class TestBar < Minitest::Test
   end
 
   def test_add_consumable
-
+    @bar.add_consumable(@crisps)
+    assert(@bar.consumable_available?(@crisps))
   end
 
   def test_remove_consumable
 
   end
 
-  def test_consumable_available
+  def test_consumable_available__true
+    @bar.add_consumable(@crisps)
+    assert(@bar.consumable_available?(@crisps))
+  end
 
+  def test_consumable_available__false
+    assert(!@bar.consumable_available?(@crisps))
   end
 
 end
