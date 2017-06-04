@@ -51,4 +51,8 @@ class Room
     return guests
   end
 
+  def space_for_guests?(guest)
+    return (@guests.empty?()) && (guest.length <= @capacity)
+  end
+
 end
