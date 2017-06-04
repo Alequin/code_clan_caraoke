@@ -11,14 +11,19 @@ class TestBar < Minitest::Test
   end
 
   def test_get_profit
-
-  end
-
-  def test_get_menu
-
+    assert_equal(0, @bar.profit)
+    @bar.take_money(@guest_1, 10)
+    assert_equal(10, @bar.profit)
   end
 
   def test_take_money
+    expected_guest_money = @guest_1.money - 10
+    @bar.take_money(@guest_1, 10)
+    assert_equal(expected_guest_money, @guest_1.money)
+    assert_equal(10, @bar.profit)
+  end
+
+  def test_get_menu
 
   end
 
