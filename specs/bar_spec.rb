@@ -35,7 +35,7 @@ class TestBar < Minitest::Test
   end
 
   def test_sell_to_guest
-
+    
   end
 
   def test_add_consumable

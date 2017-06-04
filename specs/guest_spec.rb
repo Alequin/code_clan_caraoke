@@ -2,10 +2,14 @@ require("minitest/autorun")
 require("minitest/rg")
 require_relative("../song.rb")
 require_relative("../guest.rb")
+require_relative("../consumable.rb")
 
 class TestGuest < Minitest::Test
 
   def setup
+    @drink = Consumable.new("soda", :drink, 4)
+    @food = Consumable.new("crisps", :food, 2)
+
     @song_1_lyrics = "My daddy was workin' nine to five"
     @song_2_lyrics = "Somebody once told me the world is gonna roll me"
     @song_1 = Song.new("Rock’n’Roll Singer", "ACDC", @song_1_lyrics, 228)
@@ -51,6 +55,38 @@ class TestGuest < Minitest::Test
   def test_is_favourite_song
     assert_equal(true, @guest_1.is_favourite_song?(@song_1))
     assert_equal(false, @guest_1.is_favourite_song?(@song_2))
+  end
+
+  def test_add_to_consumables
+    @guest_1.add_consumable(@drink)
+    assert(@guest_1.has_consumable?(@drink))
+  end
+
+  def test_has_food__true
+    @guest_1.add_consumable(@food)
+    assert(@guest_1.has_food?())
+  end
+
+  def test_has_drink__true
+    @guest_1.add_consumable(@drink)
+    assert(@guest_1.has_drink?())
+  end
+
+  def test_has_food__false
+    assert(!@guest_1.has_food?())
+  end
+
+  def test_has_drink__false
+    assert(!@guest_1.has_drink?())
+  end
+
+  def test_has_specific_consumable__true
+    @guest_1.add_consumable(@drink)
+    assert(@guest_1.has_consumable?(@drink))
+  end
+
+  def test_has_specific_consumable__false
+    assert(!@guest_1.has_consumable?(@drink))
   end
 
 end
