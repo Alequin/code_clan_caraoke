@@ -28,4 +28,9 @@ class Bar
     @consumables.delete(consumable)
   end
 
+  def sell_to_guest(guest, consumable)
+    take_money(guest, consumable.cost)
+    guest.add_consumable(consumable)
+  end
+
 end
