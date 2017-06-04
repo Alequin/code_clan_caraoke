@@ -17,6 +17,7 @@ class TestRoom < Minitest::Test
     @song_1 = Song.new("Rock’n’Roll Singer", "ACDC", @song_1_lyrics, 228)
     @song_2 = Song.new("All Star", "Smash Mouth", @song_2_lyrics, 237)
     @song_3 = Song.new("Dragonborn (Skyrim Theme)", "The Elder Scrolls V: Skyrim (OGST)", @song_3_lyrics, 237)
+    @empty_song = Song.new("","","",0)
 
     @guest_1 = Guest.new("Bob", 100, @song_1)
     @guest_2 = Guest.new("Sally", 200, @song_2)
@@ -54,7 +55,19 @@ class TestRoom < Minitest::Test
   end
 
   def test_song_in_room__false
-    assert_equal(false, @room_1.song_in_room?(Song.new("","","",0)))
+    assert_equal(false, @room_1.song_in_room?(@empty_song))
+  end
+
+  def test_add_song
+    @room_1.add_song(@empty_song)
+    result = @room_1.song_in_room?(@empty_song)
+    assert_equal(true, result)
+  end
+
+  def test_remove_song
+    @room_1.remove_song(@song_1)
+    result = @room_1.song_in_room?(@song_1)
+    assert_equal(false, result)
   end
 
   def test_number_of_guests
