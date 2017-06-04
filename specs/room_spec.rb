@@ -92,15 +92,22 @@ class TestRoom < Minitest::Test
     assert_equal(@guests, @room_1.get_current_guests())
   end
 
+  def test_all_guests_can_pay__true
+    assert(@room_1.guests_can_pay?(@guests))
+  end
+
+  def test_all_guests_can_pay__false
+    assert(!@room_1.guests_can_pay?(@guests))
+  end
+
   def test_get_payment_from_guests
     expected_post_payment = @guests.map() {|guest| guest.money - @room_1.entry_fee}
-    @room_1.get_payment_from_guests()
+    @room_1.get_payment_from_guests(@guests)
     room_guests = @room_1.get_current_guests()
     result_post_payment = room_guests.map() {|guest| guest.money}
     (@guests.length).times do |index|
       assert_equal(expected_post_payment[index], result_post_payment[index])
     end
-
   end
 
   def test_remove_guests
