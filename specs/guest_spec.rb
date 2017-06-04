@@ -62,6 +62,12 @@ class TestGuest < Minitest::Test
     assert(@guest_1.has_consumable?(@drink))
   end
 
+  def test_remove_from_consumables
+    @guest_1.add_consumable(@drink)
+    @guest_1.remove_consumable(@drink)
+    assert(!@guest_1.has_consumable?(@drink))
+  end
+
   def test_has_food__true
     @guest_1.add_consumable(@food)
     assert(@guest_1.has_food?())
