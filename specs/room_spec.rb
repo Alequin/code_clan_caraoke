@@ -44,6 +44,12 @@ class TestRoom < Minitest::Test
     assert_equal(1, @room_1.room_number)
   end
 
+  def test_get_current_song
+    assert_equal(@song_1, @room_1.get_current_song())
+    @room_1.play_next_song()
+    assert_equal(@song_2, @room_1.get_current_song())
+  end
+
   def test_play_next_song
     @songs.cycle(2) do |song|
       assert_equal(song.lyrics, @room_1.play_next_song())
