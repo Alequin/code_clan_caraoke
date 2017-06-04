@@ -24,4 +24,8 @@ class Bar
     @consumables.push(consumable)
   end
 
+  def remove_consumable(consumable)
+    @consumables.delete(consumable)
+  end
+
 end
