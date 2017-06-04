@@ -38,7 +38,7 @@ class Room
   end
 
   def get_current_guests()
-    return @guests.clone
+    return @guests
   end
 
   def check_in_guests(guests)
