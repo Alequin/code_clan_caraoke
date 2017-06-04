@@ -33,6 +33,10 @@ class Room
     return @songs[@current_song_index]
   end
 
+  def song_in_room?(song)
+    return @songs.include?(song)
+  end
+
   def number_of_guests()
     return @guests.length
   end
