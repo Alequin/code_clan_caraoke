@@ -1,9 +1,10 @@
 class Consumable
 
-  attr_reader :name, :cost
+  attr_reader :name, :type, :cost
 
-  def initialize(name, cost)
+  def initialize(name, type, cost)
     @name = name
+    @type = type
     @cost = cost
   end
 
