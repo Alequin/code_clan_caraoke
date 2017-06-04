@@ -1,3 +1,5 @@
+require("pry")
+
 class Room
 
   attr_reader :capacity, :entry_fee, :room_number
@@ -36,7 +38,7 @@ class Room
   end
 
   def get_current_guests()
-
+    return @guests.clone
   end
 
   def check_in_guests(guests)
