@@ -25,7 +25,7 @@ class Guest
   end
 
   def sing_favourite_song()
-    return @favourite_song.lyrics
+    return sing(@favourite_song)
   end
 
   def is_favourite_song?(song)
