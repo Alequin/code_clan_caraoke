@@ -57,4 +57,26 @@ class Guest
     return @consumables.any?() {|consumable| consumable.type == type}
   end
 
+  def eat()
+    return consume(:food)
+  end
+
+  def drink()
+    return consume(:drink)
+  end
+
+  def consume(type)
+    to_consume = get_consumable_of_type(type)
+    remove_consumable(to_consume)
+    return to_consume
+  end
+
+  def get_consumable_of_type(type)
+    result = nil
+    @consumables.each do |consumable|
+      result = consumable if (consumable.type == type)
+    end
+    return result
+  end
+
 end
