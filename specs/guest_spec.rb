@@ -86,6 +86,16 @@ class TestGuest < Minitest::Test
     assert(!@guest_1.has_drink?())
   end
 
+  def test_has_consumable_type__true
+    @guest_1.add_consumable(@drink)
+    assert(@guest_1.has_consumable_type?(:drink))
+  end
+
+  def test_has_consumable_type__false
+    @guest_1.add_consumable(@drink)
+    assert(!@guest_1.has_consumable_type?(:food))
+  end
+
   def test_has_specific_consumable__true
     @guest_1.add_consumable(@drink)
     assert(@guest_1.has_consumable?(@drink))
