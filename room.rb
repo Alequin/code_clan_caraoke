@@ -1,5 +1,3 @@
-require("pry")
-
 class Room
 
   attr_reader :capacity, :entry_fee, :room_number
@@ -22,16 +20,23 @@ class Room
   end
 
   def play_next_song()
-    #binding.pry
     @current_song_index = 0 if @current_song_index >= @songs.length
     lyrics = @songs[@current_song_index].lyrics
     @current_song_index += 1 if @current_song_index < @songs.length
     return lyrics
   end
 
-  def test_play_random_song()
+  def play_random_song()
     @current_song_index = rand(@songs.length)
     return @songs[@current_song_index]
+  end
+
+  def number_of_guests()
+    return @guests.length
+  end
+
+  def check_in_guests(guests)
+    @guests = guests
   end
 
 end
