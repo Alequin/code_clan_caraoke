@@ -44,7 +44,9 @@ class TestBar < Minitest::Test
   end
 
   def test_remove_consumable
-
+    menu = @bar.get_menu
+    @bar.remove_consumable(menu[0])
+    assert(!@bar.consumable_available?(menu[0]))
   end
 
   def test_consumable_available__true
