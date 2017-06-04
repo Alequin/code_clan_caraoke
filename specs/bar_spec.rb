@@ -7,7 +7,7 @@ class TestBar < Minitest::Test
 
   def setup
     @guest_1 = Guest.new("Bob", 100, @song_1)
-    @bar = Bar.new
+    @bar = Bar.new([])
   end
 
   def test_get_profit
