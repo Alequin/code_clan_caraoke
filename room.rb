@@ -37,6 +37,14 @@ class Room
     return @songs.include?(song)
   end
 
+  def add_song(song)
+    @songs.push(song)
+  end
+
+  def remove_song(song)
+    @songs.delete(song)
+  end
+
   def number_of_guests()
     return @guests.length
   end
