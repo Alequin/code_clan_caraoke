@@ -105,4 +105,18 @@ class TestGuest < Minitest::Test
     assert(!@guest_1.has_consumable?(@drink))
   end
 
+  def test_eat
+    @guest_1.add_consumable(@food)
+    consumable = @guest_1.eat()
+    assert(!@guest_1.has_consumable(@food))
+    assert_equal(@food, consumable)
+  end
+
+  def test_drink
+    @guest_1.add_consumable(@drink)
+    consumable = @guest_1.drink()
+    assert(!@guest_1.has_consumable(@drink))
+    assert_equal(@drink, consumable)
+  end
+
 end
