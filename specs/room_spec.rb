@@ -49,6 +49,14 @@ class TestRoom < Minitest::Test
     end
   end
 
+  def test_song_in_room__true
+    assert_equal(true, @room_1.song_in_room?(@song_1))
+  end
+
+  def test_song_in_room__false
+    assert_equal(false, @room_1.song_in_room?(Song.new("","","",0)))
+  end
+
   def test_number_of_guests
     assert_equal(0, @room_1.number_of_guests())
     @room_1.check_in_guests(@guests)
