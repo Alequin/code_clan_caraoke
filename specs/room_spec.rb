@@ -47,7 +47,7 @@ class TestRoom < Minitest::Test
   def test_get_current_song
     # until the first call to play next song
     # the method get_current_song returns nil
-    assert_equal(nil, @room_1.get_current_song())
+    assert_nil(@room_1.get_current_song())
     @room_1.play_next_song()
     assert_equal(@song_1, @room_1.get_current_song())
     @room_1.play_next_song()
