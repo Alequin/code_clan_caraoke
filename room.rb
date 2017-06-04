@@ -45,4 +45,10 @@ class Room
     @guests = guests
   end
 
+  def remove_guests()
+    guests = @guests
+    @guests = []
+    return guests
+  end
+
 end
