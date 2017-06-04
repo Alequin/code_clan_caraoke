@@ -35,7 +35,13 @@ class TestBar < Minitest::Test
   end
 
   def test_sell_to_guest
-    
+    guest_money_pre_purchase = @guest_1.money
+    @bar.sell_to_guest(@guest_1, @crisps)
+    expected_guest_money = guest_money_pre_purchase - @crisps.cost
+    assert_equal(expected_guest_money, @guest_1.money)
+    expected_bar_profit = @crisps.cost
+    assert_equal(expected_bar_profit, @bar.profit)
+    assert(@guest_1.has_consumable?(@crisps))
   end
 
   def test_add_consumable
