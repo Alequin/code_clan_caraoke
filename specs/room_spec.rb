@@ -133,4 +133,9 @@ class TestRoom < Minitest::Test
     assert_equal(false, @room_1.space_for_guests?(@guests))
   end
 
+  def test_run_query_if_buy_consumable
+    @room_1.check_in_guests(@guests)
+    10.times(){@room_1.query_if_buy_consumables()}
+  end
+
 end

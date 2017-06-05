@@ -2,11 +2,14 @@ class Guest
 
   attr_reader :name, :money, :favourite_song
 
+  @@consumable_buy_roll = 100
+
   def initialize(name, money, favourite_song)
     @name = name
     @money = money
     @favourite_song = favourite_song
     @consumables = []
+    @chance_to_buy_consumable = rand(1..@@consumable_buy_roll/2)
   end
 
   def increase_money_by(amount)
@@ -77,6 +80,10 @@ class Guest
       result = consumable if (consumable.type == type)
     end
     return result
+  end
+
+  def buy_consumable?()
+    return rand(1..@@consumable_buy_roll) < @chance_to_buy_consumable
   end
 
 end

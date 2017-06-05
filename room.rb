@@ -1,4 +1,4 @@
-require("pry")
+require_relative("bar.rb")
 
 class Room
 
@@ -15,6 +15,8 @@ class Room
     @@total_rooms += 1
     @room_number = @@total_rooms
     @current_song_index = -1
+
+    @bar = Bar.get_bar()
   end
 
   def Room.reset_total_rooms_counter()
@@ -80,6 +82,17 @@ class Room
 
   def space_for_guests?(guest)
     return (@guests.empty?()) && (guest.length <= @capacity)
+  end
+
+  def query_if_buy_consumables()
+    menu = @bar.get_menu()
+    @guests.each() do |guest|
+      if(guest.buy_consumable?())
+        items_available = menu.find_all() {|item| item.cost <= guest.money}
+        next if (items_available.empty?())
+        @bar.sell_to_guest(guest, items_available.sample)
+      end
+    end
   end
 
 end

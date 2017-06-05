@@ -1,3 +1,5 @@
+require_relative("consumable.rb")
+
 class Bar
 
   attr_reader :profit
@@ -5,6 +7,15 @@ class Bar
   def initialize(consumables)
     @profit = 0
     @consumables = consumables
+  end
+
+  def Bar.get_bar()
+    @@the_bar ||= Bar.new([Consumable.new("Soda", :drink, 4),
+        Consumable.new("juice", :drink, 5),
+        Consumable.new("crisps", :food, 2),
+        Consumable.new("burger", :food, 6),
+        Consumable.new("pizza", :food, 7)
+      ])
   end
 
   def take_money(guest, amount)
